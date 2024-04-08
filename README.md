@@ -1,5 +1,7 @@
 # CartomanteTarot_Bot - English
 
+![CartomanteTarot_Bot](https://github.com/parrelladev/CartomanteTarot_Bot/assets/126002318/96500a0d-92fb-4d46-923c-f8ddda593e48)
+
 ## About
 
 The CartomanteTarot_Bot is a chatbot assistant that uses the Llama2 API to interpret Tarot. It allows users to ask questions and receive readings based on randomly selected Tarot cards, providing insights and guidance on personal, professional, and spiritual matters.

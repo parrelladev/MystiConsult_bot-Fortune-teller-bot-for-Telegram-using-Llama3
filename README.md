@@ -1,4 +1,4 @@
-# CartomanteTarot_Bot - English
+# CartomanteTarot_Bot
 
 ![CartomanteTarot_Bot](https://github.com/parrelladev/CartomanteTarot_Bot/assets/126002318/96500a0d-92fb-4d46-923c-f8ddda593e48)
 

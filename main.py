@@ -11,8 +11,8 @@ bot = telebot.TeleBot(BOT_TOKEN)
 # Definindo o teclado de resposta rápida
 markup = telebot.types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
 item1 = telebot.types.KeyboardButton("Entender o funcionamento do bot")
-item2 = telebot.types.KeyboardButton("Aprender sobre Tarot")
-item3 = telebot.types.KeyboardButton("Realizar leitura de tarot")
+item2 = telebot.types.KeyboardButton("Aprender sobre Tarot e horóscopos")
+item3 = telebot.types.KeyboardButton("Realizar leitura de Tarot")
 item4 = telebot.types.KeyboardButton("Consultar meu horóscopo")
 markup.add(item1, item2, item3, item4)
 
@@ -96,12 +96,12 @@ def interpret_horoscope(message):
 
 # Função para processar a pergunta do usuário e gerar a resposta
 def process_question(message):
-    if message.text == "Realizar leitura de tarot":
+    if message.text == "Realizar leitura de Tarot":
         interpret_tarot(message)
     elif message.text == "Entender o funcionamento do bot":
-        bot.send_message(message.chat.id, "Eu sou um bot que utiliza a API do Llama3 para interpretar o Tarot. Você pode fazer uma pergunta e eu fornecerei uma leitura baseada nas cartas do Tarot.")
-    elif message.text == "Aprender sobre Tarot":
-        bot.send_message(message.chat.id, "O Tarot é um sistema de leitura de cartas que utiliza imagens e símbolos para fornecer insights e orientações sobre questões pessoais, profissionais e espirituais.")
+        bot.send_message(message.chat.id, "Eu sou um bot que oferece leituras de tarô e horóscopo. Utilizando a API Llama3, meu objetivo é oferecer insights e orientações sobre questões pessoais, profissionais e espirituais por meio de uma interação misticas e milenares.")
+    elif message.text == "Aprender sobre Tarot e horóscopos":
+        bot.send_message(message.chat.id, "O Tarot é um sistema de leitura de cartas que utiliza imagens e símbolos para fornecer insights e orientações sobre questões pessoais, profissionais e espirituais.\n\nJá a leitura de horóscopos é uma forma de adivinhação que utiliza a posição dos astros no momento do nascimento de uma pessoa para prever aspectos da sua personalidade e eventos da sua vida.")
     else:
         user_question = message.text
         drawn_cards = generate_cards()
@@ -134,15 +134,15 @@ def process_question_horoscope(message):
 # Manipuladores de Mensagens
 @bot.message_handler(commands=['start'])
 def send_welcome(message):
-    bot.send_message(message.chat.id, "🧙‍♀️ Olá! Eu sou o CartomanteTarot_Bot.\n\nSelecione uma das opções abaixo para começar:", reply_markup=markup)
+    bot.send_message(message.chat.id, "🧙‍♀️ Olá! Eu sou o consultor MystiBot.\n\nSelecione uma das opções abaixo para começar:", reply_markup=markup)
 
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
-    if message.text == "Realizar leitura de tarot":
+    if message.text == "Realizar leitura de Tarot":
         interpret_tarot(message)
     elif message.text == "Entender o funcionamento do bot":
         bot.send_message(message.chat.id, "Eu sou um bot que utiliza a API do Llama3 para interpretar o Tarot. Você pode fazer uma pergunta e eu fornecerei uma leitura baseada nas cartas do Tarot.")
-    elif message.text == "Aprender sobre Tarot":
+    elif message.text == "Aprender sobre Tarot e horóscopos":
         bot.send_message(message.chat.id, "O Tarot é um sistema de leitura de cartas que utiliza imagens e símbolos para fornecer insights e orientações sobre questões pessoais, profissionais e espirituais.")
     elif message.text == "Consultar meu horóscopo":
         interpret_horoscope(message)

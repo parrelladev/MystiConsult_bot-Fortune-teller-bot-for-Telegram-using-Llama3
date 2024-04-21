@@ -6,9 +6,6 @@ import json
 from APIs import BOT_TOKEN, LLM_API_URL
 from deep_translator import GoogleTranslator
 
-# Especificando o modelo a ser utilizado para gerar respostas
-current_model = "llama2"
-
 # Inicializando o bot com o token fornecido
 bot = telebot.TeleBot(BOT_TOKEN)
 
@@ -19,13 +16,10 @@ def translate_text(text):
 
 # Função para gerar uma resposta baseada na pergunta do usuário e nas cartas do Tarot
 def generate_response(user_question, cards_message):
-    # Montando o prompt para a geração da resposta
-    prompt = "From now on you will take on the role of tarot interpreter. Your task is to help the user uncover the symbolic messages of the tarot and apply them to the specific situation the user will share. Please remember that the interpretations of the tarot cards are subjective and aim to promote reflection and self-knowledge. Be respectful and sensitive when dealing with personal issues. Respond with direct and objective language, providing insights and short guidance (maximum 800 tokens) based on the cards indicated below:\n\n" + cards_message + "\n\n" + user_question
-    # Definindo o payload para a requisição à API
     payload = {
-        "model": current_model,
-        "prompt": prompt,
-        "temperature": 1.0,
+        "role": "assistant",
+        "model": "llama3",
+        "prompt": "From now on you will take on the role of tarot interpreter. Your task is to help the user uncover the symbolic messages of the tarot and apply them to the specific situation the user will share. Please remember that the interpretations of the tarot cards are subjective and aim to promote reflection and self-knowledge. Be respectful and sensitive when dealing with personal issues. Don't respond with questions. Respond with direct and objective language, providing insights and short guidance (maximum 500 tokens) based on the cards indicated below:\n\n" + cards_message + "\n\n" + user_question,
         "max_new_tokens": 500,
         "min_new_tokens": -1
     }
@@ -73,6 +67,8 @@ def process_question(message):
     translation = translate_text(response)
     # Editando a mensagem anterior com a resposta traduzida
     bot.edit_message_text(chat_id=message.chat.id, message_id=message_id, text=translation)
+    # Enviando a mensagem de encerramento
+    bot.send_message(message.chat.id, "Espero que tenha gostado da consulta! 😉 Selecione o que você deseja fazer agora.")
 
 # Função para gerar cartas aleatórias do Tarot
 def generate_cards():
@@ -100,11 +96,11 @@ def handle_message(message):
     if message.text == "Realizar leitura de cartas":
         interpret_tarot(message)
     elif message.text == "Entender o funcionamento do bot":
-        bot.send_message(message.chat.id, "Eu sou um bot que utiliza a API do Llama2 para interpretar o Tarot. Você pode fazer uma pergunta e eu fornecerei uma leitura baseada nas cartas do Tarot.")
+        bot.send_message(message.chat.id, "Eu sou um bot que utiliza a API do Llama3 para interpretar o Tarot. Você pode fazer uma pergunta e eu fornecerei uma leitura baseada nas cartas do Tarot.")
     elif message.text == "Aprender sobre Tarot":
         bot.send_message(message.chat.id, "O Tarot é um sistema de leitura de cartas que utiliza imagens e símbolos para fornecer insights e orientações sobre questões pessoais, profissionais e espirituais.")
     else:
-        bot.send_message(message.chat.id, "Desculpe, não consegui entender sua escolha. Por favor, selecione uma das opções no menu.")
+        bot.send_message(message.chat.id, "Desculpe, não consegui entender sua escolha. Por favor, selecione uma das opções no menu.", reply_markup=markup)
 
 # Iniciando o bot
 bot.polling()

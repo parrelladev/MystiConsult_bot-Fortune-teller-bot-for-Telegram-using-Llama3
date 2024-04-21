@@ -141,9 +141,9 @@ def handle_message(message):
     if message.text == "Realizar leitura de Tarot":
         interpret_tarot(message)
     elif message.text == "Entender o funcionamento do bot":
-        bot.send_message(message.chat.id, "Eu sou um bot que utiliza a API do Llama3 para interpretar o Tarot. Você pode fazer uma pergunta e eu fornecerei uma leitura baseada nas cartas do Tarot.")
+        bot.send_message(message.chat.id, "Eu sou um bot que oferece leituras de tarô e horóscopo. Utilizando a API Llama3, meu objetivo é oferecer insights e orientações sobre questões pessoais, profissionais e espirituais por meio de uma interação misticas e milenares.")
     elif message.text == "Aprender sobre Tarot e horóscopos":
-        bot.send_message(message.chat.id, "O Tarot é um sistema de leitura de cartas que utiliza imagens e símbolos para fornecer insights e orientações sobre questões pessoais, profissionais e espirituais.")
+        bot.send_message(message.chat.id, "O Tarot é um sistema de leitura de cartas que utiliza imagens e símbolos para fornecer insights e orientações sobre questões pessoais, profissionais e espirituais.\n\nJá a leitura de horóscopos é uma forma de adivinhação que utiliza a posição dos astros no momento do nascimento de uma pessoa para prever aspectos da sua personalidade e eventos da sua vida.")
     elif message.text == "Consultar meu horóscopo":
         interpret_horoscope(message)
     else:

@@ -1,4 +1,4 @@
-# MystiConsult_bot - Telegram Bot
+# MystiConsult_bot
 
 ![CartomanteTarot_Bot](https://github.com/parrelladev/CartomanteTarot_Bot/assets/126002318/96500a0d-92fb-4d46-923c-f8ddda593e48)
 

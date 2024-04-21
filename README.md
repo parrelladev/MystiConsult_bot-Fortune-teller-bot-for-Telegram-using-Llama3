@@ -4,7 +4,7 @@
 
 ## About
 
-The CartomanteTarot_Bot is a Telegram chatbot assistant that uses the Llama2 API to interpret Tarot. It allows users to ask questions and receive readings based on randomly selected Tarot cards, providing insights and guidance on personal, professional, and spiritual matters.
+The CartomanteTarot_Bot is a Telegram chatbot assistant that uses the Llama3 API to interpret Tarot. It allows users to ask questions and receive readings based on randomly selected Tarot cards, providing insights and guidance on personal, professional, and spiritual matters.
 
 ## Features
 

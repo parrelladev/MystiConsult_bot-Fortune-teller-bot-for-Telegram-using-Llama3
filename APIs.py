@@ -1,2 +1,2 @@
-BOT_TOKEN = '6480600722:AAF94PUwyNWwYhFva8mgPi7u5HM5sptcA8w'
+BOT_TOKEN = '6725010134:AAEjlJdHzSgvxoRg2Nv9B1EoW1ixkfFSZHI'
 LLM_API_URL = 'http://localhost:11434/api/generate'
